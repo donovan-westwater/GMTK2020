@@ -12,7 +12,7 @@ public class ArrowBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        velo = new Vector2(transform.position.x - goalPoint.position.x, transform.position.y - goalPoint.position.y);
+        velo = new Vector2(goalPoint.position.x - transform.position.x, goalPoint.position.y- transform.position.y);
         scale = this.transform.localScale.magnitude;
     }
 
@@ -21,7 +21,7 @@ public class ArrowBehavior : MonoBehaviour
     {
         Vector2 currPoint = new Vector2(this.transform.position.x, this.transform.position.y);
         gameObject.transform.Translate(velo.normalized * speed * Time.deltaTime);
-        if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < 2f) Destroy(this);
+        if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < 2f) Destroy(this.gameObject);
 
     }
 }
