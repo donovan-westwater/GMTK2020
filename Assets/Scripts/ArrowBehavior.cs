@@ -29,7 +29,8 @@ public class ArrowBehavior : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.tag.Equals("Arrow")) return;
-        Debug.Log(arrowtype + " arrow hit the foot");
+        if(col.collider.tag.Equals("FailBox")) Debug.Log(arrowtype + " arrow missed");
+        else Debug.Log(arrowtype + " arrow hit the foot");
         Destroy(this.gameObject);
     }
 }
