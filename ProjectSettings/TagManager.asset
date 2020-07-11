@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Arrow
+  - FailBox
   layers:
   - Default
   - TransparentFX

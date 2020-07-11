@@ -29,8 +29,12 @@ public class Conductor : MonoBehaviour
 
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
+
+    int rand;
+    float timer = 0;
     void Start()
     {
+       
         //Load the AudioSource attached to the Conductor GameObject
         musicSource = GetComponent<AudioSource>();
 
@@ -42,11 +46,77 @@ public class Conductor : MonoBehaviour
 
         //Start the music
         musicSource.Play();
-    }
 
+        //Original Code below
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+    }
+    GameObject telegraphFoot(string type,float delay)
+    {
+        GameObject foot;
+        if (type.Equals("left"))
+        {
+            foot = transform.GetChild(0).gameObject;
+            foot.SetActive(true);
+            foot.GetComponent<FootBehavior>().delay = delay;
+            //Delay == scale add later
+        }
+        else if (type.Equals("up"))
+        {
+            foot = transform.GetChild(1).gameObject;
+            foot.SetActive(true);
+            foot.GetComponent<FootBehavior>().delay = delay;
+            //Delay == scale add later
+        }
+
+        else if (type.Equals("right"))
+        {
+            foot = transform.GetChild(2).gameObject;
+            foot.SetActive(true);
+            foot.GetComponent<FootBehavior>().delay = delay;
+            //Delay == scale add later
+        }
+        else
+        {
+            return null;
+        }
+        return foot;
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        //Here are more bits of unoringal code used to add metrics for the music
+        //determine how many seconds since the song started
+        songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+
+        //determine how many beats since the song started
+        songPositionInBeats = songPosition / secPerBeat;
+
+        //Original Code here
+        timer += Time.deltaTime;
+        if(timer > 3f)
+        {
+            timer = 0;
+            rand = Random.Range(0, 3);
+            while (transform.GetChild(rand).gameObject.activeSelf)
+            {
+                rand = Random.Range(0, 3);
+            }
+            string t = "";
+            switch (rand)
+            {
+                case 0:
+                    t = "left";
+                    break;
+                case 1:
+                    t = "up";
+                    break;
+                case 2:
+                    t = "right";
+                    break;
+            }
+            telegraphFoot(t, 3);
+        }
     }
 }
