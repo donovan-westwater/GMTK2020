@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -286,8 +286,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Up Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 5755553897800601871, guid: bd6f0343f3dfc254bb400e320e22f5ca,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arrow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6f0343f3dfc254bb400e320e22f5ca, type: 3}
+--- !u!1 &1088920564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755553897800601871, guid: bd6f0343f3dfc254bb400e320e22f5ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088920563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1088920565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088920564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aba57659c5ebb4b8c75c3c18bdcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalPoint: {fileID: 0}
+  speed: 1
+  type: 
 --- !u!1001 &1183958684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 4769231207249561923, guid: f8672fc14c17f364c9c7b64a1b54c6aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4769231207249561923, guid: f8672fc14c17f364c9c7b64a1b54c6aa,
         type: 3}
@@ -424,8 +450,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 6819517357979439618, guid: f8672fc14c17f364c9c7b64a1b54c6aa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arrow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8672fc14c17f364c9c7b64a1b54c6aa, type: 3}
+--- !u!1 &1686741026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6819517357979439618, guid: f8672fc14c17f364c9c7b64a1b54c6aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1686741025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686741027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686741026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aba57659c5ebb4b8c75c3c18bdcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalPoint: {fileID: 0}
+  speed: 1
+  type: 
 --- !u!1001 &1859817671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 5406355695767769365, guid: d76b191f8df576143b5ea2811d9f9f52,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5406355695767769365, guid: d76b191f8df576143b5ea2811d9f9f52,
         type: 3}
@@ -540,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 740226729745270637, guid: bf4caad097973b54ca2a5dcbe361e050,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 740226729745270637, guid: bf4caad097973b54ca2a5dcbe361e050,
         type: 3}
@@ -562,5 +614,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: 7714471535551394192, guid: bf4caad097973b54ca2a5dcbe361e050,
+        type: 3}
+      propertyPath: m_TagString
+      value: Arrow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4caad097973b54ca2a5dcbe361e050, type: 3}
+--- !u!1 &1927253426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7714471535551394192, guid: bf4caad097973b54ca2a5dcbe361e050,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927253425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1927253427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927253426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aba57659c5ebb4b8c75c3c18bdcdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalPoint: {fileID: 0}
+  speed: 1
+  type: 
