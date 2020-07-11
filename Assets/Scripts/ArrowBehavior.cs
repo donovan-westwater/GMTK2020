@@ -21,7 +21,13 @@ public class ArrowBehavior : MonoBehaviour
     {
         Vector2 currPoint = new Vector2(this.transform.position.x, this.transform.position.y);
         gameObject.transform.Translate(velo.normalized * speed * Time.deltaTime);
-        if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < 2f) Destroy(this.gameObject);
+        if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < .1f) Destroy(this.gameObject);
 
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log(arrowtype + "hit the foot");
+        Destroy(this.gameObject);
     }
 }
