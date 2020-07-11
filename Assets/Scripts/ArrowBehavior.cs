@@ -21,13 +21,15 @@ public class ArrowBehavior : MonoBehaviour
     {
         Vector2 currPoint = new Vector2(this.transform.position.x, this.transform.position.y);
         gameObject.transform.Translate(velo.normalized * speed * Time.deltaTime);
-        if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < .1f) Destroy(this.gameObject);
+        Physics2D.IgnoreLayerCollision(1, 1, true);
+        //if (Vector2.Distance(new Vector2(goalPoint.position.x, goalPoint.position.y), currPoint) < .1f) Destroy(this.gameObject);
 
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log(arrowtype + "hit the foot");
+        if (col.collider.tag.Equals("Arrow")) return;
+        Debug.Log(arrowtype + " arrow hit the foot");
         Destroy(this.gameObject);
     }
 }

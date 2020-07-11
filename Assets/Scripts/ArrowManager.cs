@@ -8,6 +8,7 @@ public class ArrowManager : MonoBehaviour
     public GameObject leftPrefab;
     public GameObject upPrefab;
     public GameObject rightPrefab;
+    public float speed = 1.5f;
     void Start()
     {
         
@@ -22,6 +23,7 @@ public class ArrowManager : MonoBehaviour
             arrow.transform.position = new Vector2(gameObject.transform.GetChild(0).transform.position.x, gameObject.transform.GetChild(0).transform.position.y);
             arrow.GetComponent<ArrowBehavior>().arrowtype = "left";
             arrow.GetComponent<ArrowBehavior>().goalPoint = gameObject.transform.GetChild(3).GetChild(0);
+            arrow.GetComponent<ArrowBehavior>().speed = this.speed;
         }
         else if (type.Equals("up"))
         {
@@ -29,6 +31,7 @@ public class ArrowManager : MonoBehaviour
             arrow.transform.position = new Vector2(gameObject.transform.GetChild(1).transform.position.x, gameObject.transform.GetChild(1).transform.position.y);
             arrow.GetComponent<ArrowBehavior>().arrowtype = "up";
             arrow.GetComponent<ArrowBehavior>().goalPoint = gameObject.transform.GetChild(3).GetChild(1);
+            arrow.GetComponent<ArrowBehavior>().speed = this.speed;
         }
         else if (type.Equals("right"))
         {
@@ -36,6 +39,7 @@ public class ArrowManager : MonoBehaviour
             arrow.transform.position = new Vector2(gameObject.transform.GetChild(2).transform.position.x, gameObject.transform.GetChild(2).transform.position.y);
             arrow.GetComponent<ArrowBehavior>().arrowtype = "right";
             arrow.GetComponent<ArrowBehavior>().goalPoint = gameObject.transform.GetChild(3).GetChild(2);
+            arrow.GetComponent<ArrowBehavior>().speed = this.speed;
         }
     }
     // Update is called once per frame
