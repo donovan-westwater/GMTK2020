@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenTriggerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4994818202188679528, guid: f198823b0c2120e43b79f8ef28390093,
+        type: 3}
+      propertyPath: m_TagString
+      value: FailBox
+      objectReference: {fileID: 0}
     - target: {fileID: 4994818202188679531, guid: f198823b0c2120e43b79f8ef28390093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -373,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572267176}
   - component: {fileID: 1572267175}
+  - component: {fileID: 1572267177}
   m_Layer: 0
   m_Name: Conductor
   m_TagString: Untagged
@@ -391,7 +397,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d5afa3ad03c58745b549b9950052824, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -487,12 +493,30 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.033652544, z: -1.3286177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 116312411718877850}
-  - {fileID: 2246878363238661639}
   - {fileID: 708693788827555013}
+  - {fileID: 2246878363238661639}
+  - {fileID: 116312411718877850}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572267177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572267174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953230638bf8cf54d81a3f2dec63e581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songBpm: 0
+  secPerBeat: 0
+  songPosition: 0
+  songPositionInBeats: 0
+  dspSongTime: 0
+  musicSource: {fileID: 0}
 --- !u!1001 &1796774711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,6 +588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RedTriggerBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258565589465860792, guid: e8d0acdaad33c9b4fa6b1ac353091827,
+        type: 3}
+      propertyPath: m_TagString
+      value: FailBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d0acdaad33c9b4fa6b1ac353091827, type: 3}
@@ -766,6 +795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTriggerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2366136373757158070, guid: a262eee4297ca6e4298597b29f264c83,
+        type: 3}
+      propertyPath: m_TagString
+      value: FailBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a262eee4297ca6e4298597b29f264c83, type: 3}
 --- !u!61 &116312411718877828
@@ -805,6 +839,7 @@ GameObject:
   - component: {fileID: 116312411718877850}
   - component: {fileID: 116312411718877851}
   - component: {fileID: 116312411718877828}
+  - component: {fileID: 116312411718877830}
   m_Layer: 0
   m_Name: Right Foot
   m_TagString: Untagged
@@ -812,6 +847,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &116312411718877830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116312411718877829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb31ba043f7674180fce6227bd3088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 0
+  delay: 0
 --- !u!4 &116312411718877850
 Transform:
   m_ObjectHideFlags: 0
@@ -824,7 +873,7 @@ Transform:
   m_LocalScale: {x: 10.876745, y: 3.4243991, z: -2}
   m_Children: []
   m_Father: {fileID: 1572267176}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &116312411718877851
 SpriteRenderer:
@@ -938,7 +987,7 @@ Transform:
   m_LocalScale: {x: 10.876745, y: 3.4243991, z: -2}
   m_Children: []
   m_Father: {fileID: 1572267176}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708693788827555034
 GameObject:
@@ -951,6 +1000,7 @@ GameObject:
   - component: {fileID: 708693788827555013}
   - component: {fileID: 708693788827555012}
   - component: {fileID: 708693788827555035}
+  - component: {fileID: 708693788827555036}
   m_Layer: 0
   m_Name: Left foot
   m_TagString: Untagged
@@ -984,6 +1034,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14395805, y: 0.14395809}
   m_EdgeRadius: 0
+--- !u!114 &708693788827555036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708693788827555034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb31ba043f7674180fce6227bd3088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 0
+  delay: 0
 --- !u!212 &2246878363238661638
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1059,6 +1123,7 @@ GameObject:
   - component: {fileID: 2246878363238661639}
   - component: {fileID: 2246878363238661638}
   - component: {fileID: 2246878363238661657}
+  - component: {fileID: 2246878363238661658}
   m_Layer: 0
   m_Name: Center foot
   m_TagString: Untagged
@@ -1092,3 +1157,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14395805, y: 0.14395809}
   m_EdgeRadius: 0
+--- !u!114 &2246878363238661658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246878363238661656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb31ba043f7674180fce6227bd3088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 0
+  delay: 0
