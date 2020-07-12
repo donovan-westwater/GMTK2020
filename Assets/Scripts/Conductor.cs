@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class Conductor : MonoBehaviour
 {
@@ -127,6 +129,7 @@ public class Conductor : MonoBehaviour
         if(points < -500)
         {
             //loseText.text = "Your friend looked too bad at dancing! You lose!";
+            musicSource.Stop();
             end.SetActive(true);
             return;
         }
