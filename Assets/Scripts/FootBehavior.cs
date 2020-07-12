@@ -5,17 +5,21 @@ using UnityEngine;
 public class FootBehavior : MonoBehaviour
 {
     Vector2 ogSize;
+    GameObject Conductor;
     public string type;
     public float scale;
     public float delay;
     public Animator dancer;
+    public bool wasHit = false;
     // Start is called before the first frame update
     void Start()
     {
         ogSize = this.transform.localScale;
         scale = 1;
-        this.GetComponent<SpriteRenderer>().color = Color.black;
+        //this.GetComponent<SpriteRenderer>().color = Color.black;
         this.GetComponent<BoxCollider2D>().enabled = false;
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        Conductor = GameObject.Find("Conductor");
     }
 
     // Update is called once per frame
@@ -37,14 +41,15 @@ public class FootBehavior : MonoBehaviour
         if (scale <= 0.40 && scale >= 0.1)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            //this.GetComponent<SpriteRenderer>().color = Color.white;
             
         }
         else if (scale < 0.1)
         {
             dancer.SetInteger("Side", -1);
+            if (!wasHit) Conductor.GetComponent<Conductor>().points -= 100;
             this.transform.localScale = ogSize;
-            this.GetComponent<SpriteRenderer>().color = Color.black;
+            //this.GetComponent<SpriteRenderer>().color = Color.black;
             scale = 1;
             this.GetComponent<BoxCollider2D>().enabled = false;
             this.gameObject.SetActive(false);

@@ -121,7 +121,7 @@ public class Conductor : MonoBehaviour
             loseText.text ="Your friend looked really good! His girlfriend was impressed! You win!";
         }
         timer += Time.deltaTime;
-        if(timer > secPerBeat)
+        if(timer > 4*secPerBeat)
         {
 
             if (beatNum >= currLine.Length)
@@ -141,7 +141,7 @@ public class Conductor : MonoBehaviour
             }
             
             if (currLine[beatNum].Equals("l")) telegraphFoot("left", secPerBeat+0.5f);
-            else if (currLine[beatNum].Equals("u")) telegraphFoot("up", secPerBeat + 0.5f);
+            else if (currLine[beatNum].Equals("u")) telegraphFoot("up", secPerBeat + 0.75f);
             else if (currLine[beatNum].Equals("r")) telegraphFoot("right", secPerBeat + 0.5f);
             beatNum++;
             timer = 0;

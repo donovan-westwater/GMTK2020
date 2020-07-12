@@ -42,6 +42,7 @@ public class ArrowBehavior : MonoBehaviour
         else
         {
             manager.GetComponent<Conductor>().points += 100;
+            col.gameObject.GetComponent<FootBehavior>().wasHit = true;
             Debug.Log(arrowtype + " arrow hit the foot");
         }
         Destroy(this.gameObject);
