@@ -7,6 +7,7 @@ public class ArrowBehavior : MonoBehaviour
     public Transform goalPoint;
     public float speed = 1f;
     public string arrowtype;
+    public GameObject manager;
     Vector2 ogScale;
     float size = 1;
     Vector2 velo;
@@ -15,6 +16,7 @@ public class ArrowBehavior : MonoBehaviour
     {
         velo = new Vector2(goalPoint.position.x - transform.position.x, goalPoint.position.y- transform.position.y);
         ogScale = this.transform.localScale;
+        manager = GameObject.Find("Conductor");
     }
 
     // Update is called once per frame
@@ -32,8 +34,16 @@ public class ArrowBehavior : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.tag.Equals("Arrow")) return;
-        if(col.collider.tag.Equals("FailBox")) Debug.Log(arrowtype + " arrow missed");
-        else Debug.Log(arrowtype + " arrow hit the foot");
+        if (col.collider.tag.Equals("FailBox"))
+        {
+            manager.GetComponent<Conductor>().points -= 100;
+            Debug.Log(arrowtype + " arrow missed");
+        }
+        else
+        {
+            manager.GetComponent<Conductor>().points += 100;
+            Debug.Log(arrowtype + " arrow hit the foot");
+        }
         Destroy(this.gameObject);
     }
 }

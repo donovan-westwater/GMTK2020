@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Conductor : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class Conductor : MonoBehaviour
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
 
+    public float points = 0;
+    public Text loseText;
+    public Text pointsText;
     public string[] lines;
     string[] currLine;
     int linenum = 0;
@@ -59,6 +63,7 @@ public class Conductor : MonoBehaviour
         TextAsset stor = Resources.Load("track") as TextAsset;
         lines = stor.text.Split('\n');
         currLine = lines[0].Split(' ');
+        //points = 0;
     }
     GameObject telegraphFoot(string type,float delay)
     {
@@ -102,6 +107,16 @@ public class Conductor : MonoBehaviour
         songPositionInBeats = songPosition / secPerBeat;
 
         //Original Code here
+        pointsText.text = "Points: " + points;
+        if(points < -500)
+        {
+            loseText.text = "Your friend looked too bad at dancing! You lose!";
+            return;
+        }
+        if(points > 5000)
+        {
+            loseText.text ="Your friend looked really good! His girlfriend was impressed! You win!";
+        }
         timer += Time.deltaTime;
         if(timer > secPerBeat)
         {

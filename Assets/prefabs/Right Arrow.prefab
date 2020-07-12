@@ -99,6 +99,7 @@ MonoBehaviour:
   goalPoint: {fileID: 0}
   speed: 1
   arrowtype: 
+  manager: {fileID: 1517976022064694999, guid: 1409244a29ef0f14c82a1492b1cbe5a7, type: 3}
 --- !u!61 &3905398226880294946
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class ArrowManager : MonoBehaviour
     public GameObject upPrefab;
     public GameObject rightPrefab;
     public float speed = 1.5f;
+    
     void Start()
     {
         
