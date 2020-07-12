@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject intro;
     public GameObject leftPrefab;
     public GameObject upPrefab;
     public GameObject rightPrefab;
@@ -46,6 +47,10 @@ public class ArrowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (intro.activeSelf == true)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.A)) SpawnArrow("left");
         if (Input.GetKeyDown(KeyCode.S)) SpawnArrow("up");
         if (Input.GetKeyDown(KeyCode.D)) SpawnArrow("right");

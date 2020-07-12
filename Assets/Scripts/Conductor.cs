@@ -31,6 +31,9 @@ public class Conductor : MonoBehaviour
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
 
+    public GameObject intro;
+    public GameObject end;
+    public GameObject victory;
     public float points = 0;
     public Text loseText;
     public Text pointsText;
@@ -54,7 +57,7 @@ public class Conductor : MonoBehaviour
         dspSongTime = (float)AudioSettings.dspTime;
 
         //Start the music
-        musicSource.Play();
+        //musicSource.Play();
 
         //Original Code below
         transform.GetChild(0).gameObject.SetActive(false);
@@ -63,6 +66,7 @@ public class Conductor : MonoBehaviour
         TextAsset stor = Resources.Load("track") as TextAsset;
         lines = stor.text.Split('\n');
         currLine = lines[0].Split(' ');
+        intro.SetActive(true);
         //points = 0;
     }
     GameObject telegraphFoot(string type,float delay)
@@ -102,6 +106,15 @@ public class Conductor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (intro.activeSelf == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                intro.SetActive(false);
+                musicSource.Play();
+            }
+            return;
+        }
         //Here are more bits of unoringal code used to add metrics for the music
         //determine how many seconds since the song started
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
@@ -113,12 +126,14 @@ public class Conductor : MonoBehaviour
         pointsText.text = "Points: " + points;
         if(points < -500)
         {
-            loseText.text = "Your friend looked too bad at dancing! You lose!";
+            //loseText.text = "Your friend looked too bad at dancing! You lose!";
+            end.SetActive(true);
             return;
         }
-        if(points > 5000)
+        if(points > 5000 || victory.activeSelf)
         {
-            loseText.text ="Your friend looked really good! His girlfriend was impressed! You win!";
+            //loseText.text ="Your friend looked really good! His girlfriend was impressed! You win!";
+            victory.SetActive(true);
         }
         timer += Time.deltaTime;
         if(timer > 4*secPerBeat)
@@ -126,7 +141,11 @@ public class Conductor : MonoBehaviour
 
             if (beatNum >= currLine.Length)
             {
-                if (linenum >= lines.Length) return;
+                if (linenum >= lines.Length)
+                {
+                    victory.SetActive(true);
+                    return;
+                }
                 else linenum++;
                 if (lines[linenum].Length > 0)
                 {
