@@ -5,8 +5,10 @@ using UnityEngine;
 public class FootBehavior : MonoBehaviour
 {
     Vector2 ogSize;
+    public string type;
     public float scale;
     public float delay;
+    public Animator dancer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +22,27 @@ public class FootBehavior : MonoBehaviour
     void Update()
     {
         this.transform.localScale = scale * ogSize;
+        if (type.Equals("left"))
+        {
+            dancer.SetInteger("Side", 0);
+        }
+        else if (type.Equals("up"))
+        {
+            dancer.SetInteger("Side", 1);
+        }
+        else if (type.Equals("right"))
+        {
+            dancer.SetInteger("Side", 2);
+        }
         if (scale <= 0.40 && scale >= 0.1)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
             this.GetComponent<SpriteRenderer>().color = Color.white;
+            
         }
         else if (scale < 0.1)
         {
+            dancer.SetInteger("Side", -1);
             this.transform.localScale = ogSize;
             this.GetComponent<SpriteRenderer>().color = Color.black;
             scale = 1;

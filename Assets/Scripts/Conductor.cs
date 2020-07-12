@@ -73,6 +73,7 @@ public class Conductor : MonoBehaviour
             foot = transform.GetChild(0).gameObject;
             foot.SetActive(true);
             foot.GetComponent<FootBehavior>().delay = delay;
+            foot.GetComponent<FootBehavior>().type = "left";
             //Delay == scale add later
         }
         else if (type.Equals("up"))
@@ -80,6 +81,7 @@ public class Conductor : MonoBehaviour
             foot = transform.GetChild(1).gameObject;
             foot.SetActive(true);
             foot.GetComponent<FootBehavior>().delay = delay;
+            foot.GetComponent<FootBehavior>().type = "up";
             //Delay == scale add later
         }
 
@@ -88,6 +90,7 @@ public class Conductor : MonoBehaviour
             foot = transform.GetChild(2).gameObject;
             foot.SetActive(true);
             foot.GetComponent<FootBehavior>().delay = delay;
+            foot.GetComponent<FootBehavior>().type = "right";
             //Delay == scale add later
         }
         else
