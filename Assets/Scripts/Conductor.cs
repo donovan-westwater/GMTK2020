@@ -30,6 +30,11 @@ public class Conductor : MonoBehaviour
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
 
+    public string[] lines;
+    string[] currLine;
+    int linenum = 0;
+    int beatNum = 0;
+
     int rand;
     float timer = 0;
     void Start()
@@ -51,6 +56,9 @@ public class Conductor : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
+        TextAsset stor = Resources.Load("track") as TextAsset;
+        lines = stor.text.Split('\n');
+        currLine = lines[0].Split(' ');
     }
     GameObject telegraphFoot(string type,float delay)
     {
@@ -95,6 +103,32 @@ public class Conductor : MonoBehaviour
 
         //Original Code here
         timer += Time.deltaTime;
+        if(timer > secPerBeat)
+        {
+
+            if (beatNum >= currLine.Length)
+            {
+                if (linenum >= lines.Length) return;
+                else linenum++;
+                if (lines[linenum].Length > 0)
+                {
+                    currLine = lines[linenum].Split(' ');
+                    beatNum = 0;
+                }
+                else
+                {
+                    linenum++;
+                    return;
+                }
+            }
+            
+            if (currLine[beatNum].Equals("l")) telegraphFoot("left", secPerBeat);
+            else if (currLine[beatNum].Equals("u")) telegraphFoot("up", secPerBeat);
+            else if (currLine[beatNum].Equals("r")) telegraphFoot("right", secPerBeat);
+            beatNum++;
+            timer = 0;
+        }
+        /*
         if(timer > 3f)
         {
             timer = 0;
@@ -118,5 +152,6 @@ public class Conductor : MonoBehaviour
             }
             telegraphFoot(t, 3);
         }
+        */
     }
 }
