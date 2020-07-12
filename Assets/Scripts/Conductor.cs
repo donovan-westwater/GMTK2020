@@ -137,9 +137,9 @@ public class Conductor : MonoBehaviour
                 }
             }
             
-            if (currLine[beatNum].Equals("l")) telegraphFoot("left", secPerBeat);
-            else if (currLine[beatNum].Equals("u")) telegraphFoot("up", secPerBeat);
-            else if (currLine[beatNum].Equals("r")) telegraphFoot("right", secPerBeat);
+            if (currLine[beatNum].Equals("l")) telegraphFoot("left", secPerBeat+0.5f);
+            else if (currLine[beatNum].Equals("u")) telegraphFoot("up", secPerBeat + 0.5f);
+            else if (currLine[beatNum].Equals("r")) telegraphFoot("right", secPerBeat + 0.5f);
             beatNum++;
             timer = 0;
         }
